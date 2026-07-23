@@ -1,13 +1,13 @@
 import { computed } from "vue";
 import { useResource } from "./useResource";
-import { getSummary } from "../services/summaryService";
+import { getServers } from "../services/serverService";
 
-export function useSummary() {
+export function useServers() {
 
-    const resource = useResource(getSummary);
+    const resource = useResource(getServers);
 
     return {
-        summary: computed(() => resource.data.value),
+        servers: computed(() => resource.data.value),
         loading: resource.loading,
         error: resource.error,
         refresh: resource.refresh,
