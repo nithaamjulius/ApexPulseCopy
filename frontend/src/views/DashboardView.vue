@@ -8,49 +8,22 @@
       {{ error }}
     </p>
 
-    <div v-else-if="summary">
-      <h2>Summary</h2>
+    <template v-else>
+      <DashboardSummary v-if="summary" :summary="summary" />
 
-      <p>Total Revenue: {{ summary.total_revenue }}</p>
+      <DashboardServers v-if="servers" :servers="servers" />
 
-      <p>Active Users: {{ summary.active_users }}</p>
-
-      <p>System Uptime: {{ summary.system_uptime_pct }}%</p>
-
-      <p>Critical Alerts: {{ summary.critical_alerts }}</p>
-
-      <h2>Servers</h2>
-
-      <ul v-if="servers">
-        <li v-for="server in servers" :key="server.server_id">
-          {{ server.server_name }} - {{ server.status }}
-        </li>
-      </ul>
-
-      <h2>System Logs</h2>
-
-      <ul v-if="logs">
-        <li v-for="log in logs" :key="log.id">
-          {{ log.timestamp }} - {{ log.level }} -
-          {{ log.message }}
-        </li>
-      </ul>
-    </div>
+      <DashboardLogs v-if="logs" :logs="logs" />
+    </template>
   </div>
 </template>
 
 <script setup>
-import { useSummary } from "../composables/useSummary";
+import { useDashboard } from "../composables/useDashboard";
 
-const { summary, loading, error } = useSummary();
+import DashboardSummary from "../components/DashboardSummary.vue";
+import DashboardServers from "../components/DashboardServers.vue";
+import DashboardLogs from "../components/DashboardLogs.vue";
 
-import { useSummary } from "../composables/useSummary";
-import { useServers } from "../composables/useServers";
-import { useLogs } from "../composables/useLogs";
-
-const { summary, loading, error } = useSummary();
-
-const { servers } = useServers();
-
-const { logs } = useLogs();
+const { summary, servers, logs, loading, error } = useDashboard();
 </script>
