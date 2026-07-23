@@ -1,10 +1,9 @@
 import api from "../api/axios";
 
-export const dashboardService = {
-
-    async getDashboardData() {
-        const response = await api.get("/dashboard");
-        return response.data;
-    },
-
-};
+/**
+ * Fetch dashboard data from the backend.
+ */
+export async function getDashboardData() {
+    const response = await api.get("/dashboard");
+    return response.data;
+}
