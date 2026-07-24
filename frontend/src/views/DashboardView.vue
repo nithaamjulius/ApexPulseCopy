@@ -1,7 +1,5 @@
 <template>
-  <div class="dashboard">
-    <h1>ApexPulse Dashboard</h1>
-
+  <DashboardLayout>
     <p v-if="loading">Loading dashboard...</p>
 
     <p v-else-if="error">
@@ -15,12 +13,13 @@
 
       <DashboardLogs v-if="logs" :logs="logs" />
     </template>
-  </div>
+  </DashboardLayout>
 </template>
 
 <script setup>
 import { useDashboard } from "../composables/useDashboard";
 
+import DashboardLayout from "../layouts/DashboardLayout.vue";
 import DashboardSummary from "../components/DashboardSummary.vue";
 import DashboardServers from "../components/DashboardServers.vue";
 import DashboardLogs from "../components/DashboardLogs.vue";
