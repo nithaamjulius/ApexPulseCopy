@@ -19,6 +19,7 @@
 <script setup>
 import { useDashboard } from "../composables/useDashboard";
 
+import Nav from "../components/nav.vue";
 import DashboardLayout from "../layouts/DashboardLayout.vue";
 import DashboardSummary from "../components/DashboardSummary.vue";
 import DashboardServers from "../components/DashboardServers.vue";

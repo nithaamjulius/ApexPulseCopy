@@ -23,43 +23,49 @@ const filteredServers = computed(() => {
 
 <template>
   <section>
-    <div class="section-heading">SERVER FLEET STATUS</div>
+    <div class="section-heading">SERVER FLEET STATUS - SERVERCARD</div>
 
     <div class="filters">
-      <button
-        class="filter"
-        :class="{ active: selectedFilter === 'all' }"
-        @click="selectedFilter = 'all'"
-      >
-        ALL
-      </button>
+      <div class="filters">
+        <button
+          type="button"
+          class="filter"
+          :class="{ active: selectedFilter === 'all' }"
+          @click="selectedFilter = 'all'"
+        >
+          ALL
+        </button>
 
-      <button
-        class="filter"
-        :class="{ active: selectedFilter === 'healthy' }"
-        @click="selectedFilter = 'healthy'"
-      >
-        HEALTHY
-      </button>
+        <button
+          type="button"
+          class="filter"
+          :class="{ active: selectedFilter === 'healthy' }"
+          @click="selectedFilter = 'healthy'"
+        >
+          HEALTHY
+        </button>
 
-      <button
-        class="filter"
-        :class="{ active: selectedFilter === 'warning' }"
-        @click="selectedFilter = 'warning'"
-      >
-        WARNING
-      </button>
+        <button
+          type="button"
+          class="filter"
+          :class="{ active: selectedFilter === 'warning' }"
+          @click="selectedFilter = 'warning'"
+        >
+          WARNING
+        </button>
 
-      <button
-        class="filter"
-        :class="{ active: selectedFilter === 'critical' }"
-        @click="selectedFilter = 'critical'"
-      >
-        CRITICAL
-      </button>
+        <button
+          type="button"
+          class="filter"
+          :class="{ active: selectedFilter === 'critical' }"
+          @click="selectedFilter = 'critical'"
+        >
+          CRITICAL
+        </button>
+      </div>
     </div>
-    <p>Selected Filter: {{ selectedFilter }}</p>
-    <p>Showing {{ filteredServers.length }} of {{ servers.length }} servers</p>
+    <p>Current filter: {{ selectedFilter }}</p>
+
     <div class="servers">
       <div class="server" v-for="server in filteredServers" :key="server.id">
         <div class="heading">
@@ -96,7 +102,6 @@ const filteredServers = computed(() => {
           <span>{{ server.ip_address }}</span>
         </div>
       </div>
-
       <div class="add">+ ADD SERVER</div>
     </div>
   </section>
@@ -111,15 +116,9 @@ const filteredServers = computed(() => {
 
 .filter {
   border: 1px solid lightgray;
-  background: white;
   padding: 6px 15px;
+  font-size: 12px;
   cursor: pointer;
-  transition: 0.25s;
-}
-
-.filter:hover {
-  background: #444;
-  color: white;
 }
 
 .active {
@@ -136,12 +135,6 @@ const filteredServers = computed(() => {
 .server {
   border: 1px solid lightgray;
   padding: 15px;
-  transition: 0.25s;
-}
-
-.server:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .heading {
@@ -152,27 +145,13 @@ const filteredServers = computed(() => {
 
 .status {
   padding: 3px 10px;
-  border-radius: 3px;
-  color: white;
-  text-transform: capitalize;
-}
-
-.status.healthy {
-  background: #2e7d32;
-}
-
-.status.warning {
-  background: #f9a825;
-}
-
-.status.critical {
-  background: #c62828;
+  font-size: 11px;
 }
 
 .bar {
   height: 10px;
-  background: #ddd;
-  margin: 10px 0;
+  margin: 10px;
+  overflow: hidden;
 }
 
 .fill {
@@ -182,7 +161,7 @@ const filteredServers = computed(() => {
 
 .metric {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
   font-size: 13px;
 }
@@ -195,17 +174,30 @@ const filteredServers = computed(() => {
   min-height: 210px;
   color: gray;
 }
+
+.status.healthy {
+  background: #2e7d32;
+  color: white;
+}
+
+.status.warning {
+  background: #f9a825;
+  color: white;
+}
+
+.status.critical {
+  background: #c62828;
+  color: white;
+}
 section{
     margin-bottom:40px;
 }
 
-.section-heading{
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:20px;
+.stats{
+    margin-top:25px;
 }
 
-.filters{
-    margin-bottom:25px;
+.card{
+    border-radius:8px;
 }
 </style>

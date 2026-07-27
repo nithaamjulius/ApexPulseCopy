@@ -1,13 +1,17 @@
 <template>
   <div class="dashboard-layout">
-    <h1>ApexPulse Dashboard</h1>
-
-    <slot />
+    <main class="dashboard-content">
+      <slot />
+    </main>
   </div>
 </template>
 
 <style scoped>
 .dashboard-layout {
+  min-height: 100vh;
+}
+
+.dashboard-content {
   padding: 2rem;
 }
 </style>
