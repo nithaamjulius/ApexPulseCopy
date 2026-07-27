@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import Nav from '@/components/nav.vue';
+import SummaryCard from './components/SummaryCard.vue';
+import ServerCard from './components/ServerCard.vue';
+import LogTable from './components/LogTable.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Nav/>
+  <SummaryCard/>
+  <ServerCard/>
+  <LogTable/>
 </template>
 
 <style scoped></style>
