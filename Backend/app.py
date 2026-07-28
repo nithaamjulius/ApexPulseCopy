@@ -20,7 +20,8 @@ app = FastAPI(
 
 # Allow the Vue.js frontend to communicate with this API
 origins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://apexpulse-frontend.onrender.com"
 ]
 
 # Adding CORS
