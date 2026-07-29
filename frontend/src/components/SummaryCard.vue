@@ -79,7 +79,7 @@ section {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
 
@@ -95,10 +95,47 @@ h4 {
 h2 {
   font-size: 42px;
   margin-bottom: 10px;
+  word-break: break-word;
 }
 
 p {
   color: gray;
   font-size: 12px;
+}
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 10px 0;
+    font-size: 28px;
+  }
+
+  .small {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
 }
 </style>

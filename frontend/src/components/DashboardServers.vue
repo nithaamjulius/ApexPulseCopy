@@ -106,7 +106,8 @@ const filteredServers = computed(() => {
 .filters {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .filter {
@@ -129,7 +130,7 @@ const filteredServers = computed(() => {
 
 .servers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -147,6 +148,9 @@ const filteredServers = computed(() => {
 .heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 12px;
 }
 
@@ -187,6 +191,9 @@ const filteredServers = computed(() => {
   font-size: 13px;
 }
 
+.metric span:last-child {
+  word-break: break-word;
+}
 .add {
   display: flex;
   justify-content: center;
@@ -207,5 +214,31 @@ section{
 
 .filters{
     margin-bottom:25px;
+}
+
+@media (max-width: 768px) {
+
+  .section-heading {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .filter {
+    flex: 1 1 calc(50% - 10px);
+    text-align: center;
+  }
+
+  .server {
+    padding: 18px;
+  }
+
+  .metric {
+    font-size: 14px;
+  }
+
+  .add {
+    min-height: 150px;
+  }
+
 }
 </style>

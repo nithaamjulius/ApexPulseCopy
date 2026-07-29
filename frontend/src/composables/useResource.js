@@ -11,8 +11,12 @@ export function useResource(fetchFunction) {
     } = useApi();
 
     async function refresh() {
-        data.value = await execute(fetchFunction);
+    const result = await execute(fetchFunction);
+
+    if (result !== null) {
+        data.value = result;
     }
+}
 
     onMounted(refresh);
 
